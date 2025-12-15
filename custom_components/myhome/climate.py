@@ -417,7 +417,7 @@ class MyHOMEClimate(MyHOMEEntity, ClimateEntity):
                 self._gateway_handler.log_id,
                 message.human_readable_log,
             )
-            if message.is_active():
+            if message.is_active() and message.where != "0":
                 if self._heating and self._cooling:
                     if message.is_heating() or self._attr_hvac_mode == HVACMode.HEAT:
                         self._attr_hvac_action = HVACAction.HEATING
